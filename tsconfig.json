@@ -21,6 +21,7 @@
       "@/server/*": ["src/server/*"],
       "@/components/*": ["src/components/*"],
       "@/contexts/*": ["src/contexts/*"],
+      "@/lib/*": ["src/lib/*"],
       "@/utils/*": ["src/utils/*"],
       "@/abis/*": ["src/abis/*"]
     }

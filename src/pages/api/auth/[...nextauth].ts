@@ -9,7 +9,7 @@ const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_SECRET,
       authorization: {
         params: {
-          scope: 'read:user public_repo project',
+          scope: 'user public_repo',
         },
       },
     }),

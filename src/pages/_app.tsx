@@ -6,6 +6,7 @@ import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { withTRPC } from '@trpc/next';
 import type { AppRouter } from '@/server/routers/_app';
 import { Web3ContextProvider } from '@/contexts/web3-context';
+import { GithubContextProvider } from '@/contexts/github-context';
 import Layout from '@/components/layout';
 
 const alchemyKey = process.env.ALCHEMY_KEY;
@@ -20,13 +21,15 @@ const client = createClient({
 function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <SessionProvider session={session}>
-      <WagmiConfig client={client}>
-        <Web3ContextProvider>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </Web3ContextProvider>
-      </WagmiConfig>
+      <GithubContextProvider>
+        <WagmiConfig client={client}>
+          <Web3ContextProvider>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </Web3ContextProvider>
+        </WagmiConfig>
+      </GithubContextProvider>
     </SessionProvider>
   );
 }
