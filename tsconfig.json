@@ -20,7 +20,9 @@
       "@/api/*": ["pages/api/*"],
       "@/server/*": ["server/*"],
       "@/components/*": ["components/*"],
-      "@/utils/*": ["utils/*"]
+      "@/contexts/*": ["contexts/*"],
+      "@/utils/*": ["utils/*"],
+      "@/abis/*": ["abis/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

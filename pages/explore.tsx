@@ -1,9 +1,12 @@
 import { trpc } from '../utils/trpc';
+import { useWeb3Context } from '@/contexts/web3-context';
 
 function Dashboard() {
+  const { address } = useWeb3Context();
+  console.log('address', address);
   const users = trpc.useQuery(['users.all']);
 
-  if (!users.data) {
+  if (users.isLoading || !users.data) {
     return <div>Loading...</div>;
   }
 
