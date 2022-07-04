@@ -18,6 +18,7 @@
     "paths": {
       "@/pages/*": ["pages/*"],
       "@/api/*": ["pages/api/*"],
+      "@/server/*": ["server/*"],
       "@/components/*": ["components/*"],
       "@/utils/*": ["utils/*"]
     }

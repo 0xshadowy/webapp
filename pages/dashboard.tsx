@@ -1,15 +1,19 @@
 import { trpc } from '../utils/trpc';
 
 function Dashboard() {
-  const hello = trpc.useQuery(['hello', { text: 'world' }]);
+  const users = trpc.useQuery(['users.all']);
 
-  if (!hello.data) {
+  if (!users.data) {
     return <div>Loading...</div>;
   }
 
   return (
     <div>
-      <p>{hello.data.greeting}</p>
+      <div>
+        {users.data.map(({ id, username }) => {
+          return <div key={id}>{username}</div>;
+        })}
+      </div>
       <button className="btn">Button</button>
     </div>
   );
