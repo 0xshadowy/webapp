@@ -1,7 +1,10 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import { useSession, signIn } from 'next-auth/react';
 
 const Home: NextPage = () => {
+  const { data: session } = useSession();
+  console.log('hehe', session);
   return (
     <div>
       <Head>
@@ -11,6 +14,7 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <h1>Hello</h1>
+        <button onClick={() => signIn('github')}>Connect</button>
       </main>
     </div>
   );

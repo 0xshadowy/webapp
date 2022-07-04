@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
+import { SessionProvider } from 'next-auth/react';
 import { WagmiConfig, configureChains, createClient, chain } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy';
 import { withTRPC } from '@trpc/next';
@@ -16,15 +17,17 @@ const client = createClient({
   provider,
 });
 
-function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <WagmiConfig client={client}>
-      <Web3ContextProvider>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </Web3ContextProvider>
-    </WagmiConfig>
+    <SessionProvider session={session}>
+      <WagmiConfig client={client}>
+        <Web3ContextProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Web3ContextProvider>
+      </WagmiConfig>
+    </SessionProvider>
   );
 }
 

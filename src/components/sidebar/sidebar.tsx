@@ -15,7 +15,7 @@ const navButtons = [
 
 export const Sidebar = () => {
   return (
-    <div className="w-[100px] flex flex-col items-center border-solid border-r-[0.5px] justify-between py-4">
+    <div className="w-[80px] flex flex-col items-center border-solid border-r-[0.5px] justify-between py-4">
       <div className="flex flex-col items-center">
         {navButtons.map(({ href, Icon }) => (
           <Link key={href} href={href} passHref>
