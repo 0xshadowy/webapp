@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import Sidebar from '../sidebar';
-import Profile from '../profile';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -17,7 +16,6 @@ export const Layout = ({ children }: LayoutProps) => {
       </Head>
       <div className="w-screen h-screen flex">
         <Sidebar />
-        <Profile />
         {children}
       </div>
     </>
