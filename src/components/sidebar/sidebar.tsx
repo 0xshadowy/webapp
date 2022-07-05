@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 import { AiFillHome, AiOutlineLogout } from 'react-icons/ai';
 import { GoTelescope } from 'react-icons/go';
 
@@ -25,7 +26,10 @@ export const Sidebar = () => {
           </Link>
         ))}
       </div>
-      <button className="my-4 p-4 rounded-[12px] hover:bg-slate-700 duration-200">
+      <button
+        className="my-4 p-4 rounded-[12px] hover:bg-slate-700 duration-200"
+        onClick={() => signOut()}
+      >
         {<AiOutlineLogout size="1.7em" />}
       </button>
     </div>

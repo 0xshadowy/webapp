@@ -1,5 +1,7 @@
 import { createRouter } from '../create-router';
 import { userRouter } from './users';
+import { repositoryRouter } from './repositories';
+import { contributionRouter } from './contributions';
 
 /**
  * Create your application's root router
@@ -13,6 +15,8 @@ export const appRouter = createRouter()
       return 'healthy!';
     },
   })
-  .merge('users.', userRouter);
+  .merge('users.', userRouter)
+  .merge('repositories.', repositoryRouter)
+  .merge('contributions.', contributionRouter);
 
 export type AppRouter = typeof appRouter;

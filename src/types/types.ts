@@ -151,3 +151,18 @@ export type Issue = {
   };
   author_association: string;
 };
+
+export type PullRequest = {
+  url: string;
+  id: number;
+  html_url: string;
+  diff_url: string;
+  patch_url: string;
+  issue_url: string;
+  commits_url: string;
+  number: number;
+  state: string;
+  locked: boolean;
+  title: string;
+  body: string;
+};

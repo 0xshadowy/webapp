@@ -1,22 +1,24 @@
+type ViewChoice = 'account' | 'organizations';
+
 type SwitchProps = {
-  active: number;
-  setActive: (val: number) => void;
+  choice: ViewChoice;
+  setChoice: (val: ViewChoice) => void;
 };
 
-export const Switch = ({ active, setActive }: SwitchProps) => {
+export const Switch = ({ choice, setChoice }: SwitchProps) => {
   return (
     <div className="btn-group">
       <button
-        className={`btn btn-xs normal-case ${active === 0 ? 'btn-active' : ''}`}
-        onClick={() => setActive(0)}
+        className={`btn btn-xs normal-case ${choice === 'account' ? 'btn-active' : ''}`}
+        onClick={() => setChoice('account')}
       >
-        Imported
+        Account
       </button>
       <button
-        className={`btn btn-xs normal-case ${active === 1 ? 'btn-active' : ''}`}
-        onClick={() => setActive(1)}
+        className={`btn btn-xs normal-case ${choice === 'organizations' ? 'btn-active' : ''}`}
+        onClick={() => setChoice('organizations')}
       >
-        Not imported
+        Organizations
       </button>
     </div>
   );
